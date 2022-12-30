@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   var a = 1;
   var b =2;
   var c = a + b;
-  res.send(' <h1>Hello Word</h1>')
+  res.send(' <h1 style="color: aquamarine;">Hello Word</h1>')
 })
 
 app.listen(port, () => {
