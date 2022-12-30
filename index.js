@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   var a = 1;
   var b =2;
   var c = a + b;
-  res.send(' chào các bạn')
+  res.send(' <h1>Hello Word</h1>')
 })
 
 app.listen(port, () => {
