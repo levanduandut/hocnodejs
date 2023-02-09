@@ -5,7 +5,7 @@ class MeController {
 
     // [Get] /me/stored/courses
     storedCourses(req, res,next) {
-        Course.find({})
+        Course.find({ deletedAt: null})
             .then(courses => res.render('me/stored-courses',
             {
                 courses: mutipleMongooseToObject(courses)
