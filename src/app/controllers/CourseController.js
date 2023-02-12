@@ -69,7 +69,7 @@ class CourseController {
     formActions(req, res, next) {
         switch (req.body.action) {
             case 'delete':
-                Course.delete({ _id: {$in:req.body.coursesIds }})
+                Course.delete({ _id: { $in: req.body.coursesIds } })
                     .then(() => res.redirect('back'))
                     .catch(next);
                 break;
@@ -77,7 +77,24 @@ class CourseController {
                 res.json({ message: "Action is invailid !" })
         }
     }
-
+    //[POST] /courses/form-trash-actions
+    formTrashActions(req, res, next) {
+        
+        switch (req.body.action) {
+            case 'restore':
+                Course.restore({ _id: { $in: req.body.coursesIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            case 'deleteforce':
+                Course.deleteOne({ _id: { $in: req.body.coursesIds }})
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            default:
+                res.json({ message: "Action is invailid !" })
+        }
+    }
 }
 
 module.exports = new CourseController;

@@ -3,10 +3,17 @@ const { mutipleMongooseToObject } = require("../../util/mongoos")
 const { mongooseToObject } = require("../../util/mongoos")
 class MeController {
 
+    
     // [Get] /me/stored/courses
     storedCourses(req, res, next) {
+        let cf = Course.find({})
 
-        Promise.all([Course.find({}), Course.countDocumentsDeleted()])
+        if(req.query.hasOwnProperty('_sort')){
+            cf = cf.sort({
+                [req.query.column]: req.query.type
+            })
+        }
+        Promise.all([cf, Course.countDocumentsDeleted()])
             .then(([courses, deletedCount]) => res.render('me/stored-courses',
                 {
                     deletedCount,
