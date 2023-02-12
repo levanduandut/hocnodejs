@@ -1,12 +1,25 @@
 .test {
   font-size: 1rem;
-  background-color: rgb(94, 114, 114);
+  background-color: aqua;
 }
 
 h1 {
-  color: rgb(211, 25, 25);
+  color: rgb(0, 0, 0);
 }
 
 h2 {
   color: green;
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.checkbox-select-all-options {
+  width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
 }/*# sourceMappingURL=app.css.map */
